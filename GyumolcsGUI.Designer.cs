@@ -30,15 +30,17 @@
         {
             this.Gyumolcsok = new System.Windows.Forms.ListBox();
             this.GyumAdat = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.IdText = new System.Windows.Forms.TextBox();
-            this.NevText = new System.Windows.Forms.TextBox();
-            this.EgysegArText = new System.Windows.Forms.TextBox();
-            this.MennyisegText = new System.Windows.Forms.TextBox();
             this.UjGyumolcs = new System.Windows.Forms.Button();
+            this.MennyisegText = new System.Windows.Forms.TextBox();
+            this.EgysegArText = new System.Windows.Forms.TextBox();
+            this.NevText = new System.Windows.Forms.TextBox();
+            this.IdText = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Modositbutton = new System.Windows.Forms.Button();
+            this.Torolbutton = new System.Windows.Forms.Button();
             this.GyumAdat.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,10 +52,13 @@
             this.Gyumolcsok.Name = "Gyumolcsok";
             this.Gyumolcsok.Size = new System.Drawing.Size(120, 450);
             this.Gyumolcsok.TabIndex = 0;
+            this.Gyumolcsok.SelectedIndexChanged += new System.EventHandler(this.Gyumolcsok_SelectedIndexChanged);
             // 
             // GyumAdat
             // 
             this.GyumAdat.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.GyumAdat.Controls.Add(this.Torolbutton);
+            this.GyumAdat.Controls.Add(this.Modositbutton);
             this.GyumAdat.Controls.Add(this.UjGyumolcs);
             this.GyumAdat.Controls.Add(this.MennyisegText);
             this.GyumAdat.Controls.Add(this.EgysegArText);
@@ -72,32 +77,44 @@
             this.GyumAdat.TabStop = false;
             this.GyumAdat.Text = "Gyümölcsök Adat Megadása";
             // 
-            // label1
+            // UjGyumolcs
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(67, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 19);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Id:";
+            this.UjGyumolcs.Location = new System.Drawing.Point(10, 194);
+            this.UjGyumolcs.Name = "UjGyumolcs";
+            this.UjGyumolcs.Size = new System.Drawing.Size(108, 40);
+            this.UjGyumolcs.TabIndex = 8;
+            this.UjGyumolcs.Text = "Új Gyümölcs";
+            this.UjGyumolcs.UseVisualStyleBackColor = true;
+            this.UjGyumolcs.Click += new System.EventHandler(this.UjGyumolcs_Click);
             // 
-            // label2
+            // MennyisegText
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Név:";
+            this.MennyisegText.Location = new System.Drawing.Point(101, 133);
+            this.MennyisegText.Name = "MennyisegText";
+            this.MennyisegText.Size = new System.Drawing.Size(100, 26);
+            this.MennyisegText.TabIndex = 7;
             // 
-            // label3
+            // EgysegArText
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 19);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Egységár:";
+            this.EgysegArText.Location = new System.Drawing.Point(101, 94);
+            this.EgysegArText.Name = "EgysegArText";
+            this.EgysegArText.Size = new System.Drawing.Size(100, 26);
+            this.EgysegArText.TabIndex = 6;
+            // 
+            // NevText
+            // 
+            this.NevText.Location = new System.Drawing.Point(101, 64);
+            this.NevText.Name = "NevText";
+            this.NevText.Size = new System.Drawing.Size(100, 26);
+            this.NevText.TabIndex = 5;
+            // 
+            // IdText
+            // 
+            this.IdText.Location = new System.Drawing.Point(101, 28);
+            this.IdText.Name = "IdText";
+            this.IdText.ReadOnly = true;
+            this.IdText.Size = new System.Drawing.Size(100, 26);
+            this.IdText.TabIndex = 4;
             // 
             // label4
             // 
@@ -108,44 +125,52 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Mennyiség:";
             // 
-            // IdText
+            // label3
             // 
-            this.IdText.Location = new System.Drawing.Point(101, 28);
-            this.IdText.Name = "IdText";
-            this.IdText.ReadOnly = true;
-            this.IdText.Size = new System.Drawing.Size(100, 26);
-            this.IdText.TabIndex = 4;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 19);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Egységár:";
             // 
-            // NevText
+            // label2
             // 
-            this.NevText.Location = new System.Drawing.Point(101, 64);
-            this.NevText.Name = "NevText";
-            this.NevText.Size = new System.Drawing.Size(100, 26);
-            this.NevText.TabIndex = 5;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(53, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 19);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Név:";
             // 
-            // EgysegArText
+            // label1
             // 
-            this.EgysegArText.Location = new System.Drawing.Point(101, 94);
-            this.EgysegArText.Name = "EgysegArText";
-            this.EgysegArText.Size = new System.Drawing.Size(100, 26);
-            this.EgysegArText.TabIndex = 6;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(67, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(28, 19);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Id:";
             // 
-            // MennyisegText
+            // Modositbutton
             // 
-            this.MennyisegText.Location = new System.Drawing.Point(101, 133);
-            this.MennyisegText.Name = "MennyisegText";
-            this.MennyisegText.Size = new System.Drawing.Size(100, 26);
-            this.MennyisegText.TabIndex = 7;
+            this.Modositbutton.Location = new System.Drawing.Point(164, 194);
+            this.Modositbutton.Name = "Modositbutton";
+            this.Modositbutton.Size = new System.Drawing.Size(101, 40);
+            this.Modositbutton.TabIndex = 9;
+            this.Modositbutton.Text = "Módosítás";
+            this.Modositbutton.UseVisualStyleBackColor = true;
+            this.Modositbutton.Click += new System.EventHandler(this.Modositbutton_Click);
             // 
-            // UjGyumolcs
+            // Torolbutton
             // 
-            this.UjGyumolcs.Location = new System.Drawing.Point(10, 194);
-            this.UjGyumolcs.Name = "UjGyumolcs";
-            this.UjGyumolcs.Size = new System.Drawing.Size(108, 40);
-            this.UjGyumolcs.TabIndex = 8;
-            this.UjGyumolcs.Text = "Új Gyümölcs";
-            this.UjGyumolcs.UseVisualStyleBackColor = true;
-            this.UjGyumolcs.Click += new System.EventHandler(this.UjGyumolcs_Click);
+            this.Torolbutton.Location = new System.Drawing.Point(326, 194);
+            this.Torolbutton.Name = "Torolbutton";
+            this.Torolbutton.Size = new System.Drawing.Size(105, 40);
+            this.Torolbutton.TabIndex = 10;
+            this.Torolbutton.Text = "Törlés";
+            this.Torolbutton.UseVisualStyleBackColor = true;
+            this.Torolbutton.Click += new System.EventHandler(this.Torolbutton_Click);
             // 
             // GyumolcsGUI
             // 
@@ -176,6 +201,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button UjGyumolcs;
+        private System.Windows.Forms.Button Torolbutton;
+        private System.Windows.Forms.Button Modositbutton;
     }
 }
 
